@@ -1,56 +1,55 @@
-class Animal():
-    def __init__(self, name, gender, phrase, bio_class):
-        self.phrase = phrase
+class Animal:
+    mammals = ['Cow', 'Goat', 'Sheep', 'Pig']
+    birds = ['Duck', 'Chicken', 'Goose']
+    phrase = None
+
+    def __init__(self, name, gender):
         self.name = name
         self.gender = gender
-        self.bio_class = bio_class
+        self.class_name = self.__class__.__name__
+        if self.class_name in self.mammals:
+            self.bio_class = 'mammal'
+        elif self.class_name in self.birds:
+            self.bio_class = 'bird'
 
     def speak(self):
-        class_name = type(self).__name__.lower()
-        phrase = '"{}"'.format(self.phrase)
-        print('{} the {} says {}'.format(self.name, class_name, phrase))
+        print('{} the {} says "{}"'.format(self.name,
+                                           self.class_name,
+                                           self.phrase))
 
 
 class Cow(Animal):
-    def __init__(self, name, gender):
-        super().__init__(name, gender, 'Moo', 'mammal')
+    phrase = 'Moo'
 
 
 class Goat(Animal):
-    def __init__(self, name, gender):
-        super().__init__(name, gender, 'Baaaa', 'mammal')
+    phrase = 'Baaaa'
 
 
 class Sheep(Animal):
-    def __init__(self, name, gender):
-        super().__init__(name, gender, 'Baaaa', 'mammal')
+    phrase = 'Baaaa'
 
 
 class Pig(Animal):
-    def __init__(self, name, gender):
-        super().__init__(name, gender, 'Oink-oink', 'mammal')
+    phrase = 'Oink-oink'
 
 
 class Duck(Animal):
-    def __init__(self, name, gender):
-        super().__init__(name, gender, 'Quack', 'bird')
+    phrase = 'Quack'
 
     def speak(self):
         gender = 'he' if self.gender == 'male' else 'she'
-        class_name = type(self).__name__.lower()
-        phrase = '"{}"'.format(self.phrase)
-        print('{} is a {} and {} says {}'.format(self.name, class_name,
-                                                 gender, phrase))
+        print('{} is a {} and {} says "{}"'.format(self.name,
+                                                   self.class_name.lower(),
+                                                   gender, self.phrase))
 
 
 class Chicken(Animal):
-    def __init__(self, name, gender):
-        super().__init__(name, gender, 'Cock-a-doodle-doo', 'bird')
+    phrase = 'Cock-a-doodle-doo'
 
 
 class Goose(Animal):
-    def __init__(self, name, gender):
-        super().__init__(name, gender, 'Quack', 'bird')
+    phrase = 'Quack'
 
 
 if __name__ == '__main__':
