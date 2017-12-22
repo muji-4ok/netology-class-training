@@ -14,7 +14,7 @@ class Animal:
 
     def speak(self):
         print('{} the {} says "{}"'.format(self.name,
-                                           self.class_name,
+                                           self.class_name.lower(),
                                            self.phrase))
 
 
