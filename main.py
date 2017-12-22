@@ -1,16 +1,10 @@
 class Animal:
-    mammals = ['Cow', 'Goat', 'Sheep', 'Pig']
-    birds = ['Duck', 'Chicken', 'Goose']
     phrase = None
 
     def __init__(self, name, gender):
         self.name = name
         self.gender = gender
         self.class_name = self.__class__.__name__
-        if self.class_name in self.mammals:
-            self.bio_class = 'mammal'
-        elif self.class_name in self.birds:
-            self.bio_class = 'bird'
 
     def speak(self):
         print('{} the {} says "{}"'.format(self.name,
@@ -18,23 +12,31 @@ class Animal:
                                            self.phrase))
 
 
-class Cow(Animal):
+class Bird(Animal):
+    bio_class = 'bird'
+
+
+class Mammal(Animal):
+    bio_class = 'mammal'
+
+
+class Cow(Mammal):
     phrase = 'Moo'
 
 
-class Goat(Animal):
+class Goat(Mammal):
     phrase = 'Baaaa'
 
 
-class Sheep(Animal):
+class Sheep(Mammal):
     phrase = 'Baaaa'
 
 
-class Pig(Animal):
+class Pig(Mammal):
     phrase = 'Oink-oink'
 
 
-class Duck(Animal):
+class Duck(Bird):
     phrase = 'Quack'
 
     def speak(self):
@@ -44,11 +46,11 @@ class Duck(Animal):
                                                    gender, self.phrase))
 
 
-class Chicken(Animal):
+class Chicken(Bird):
     phrase = 'Cock-a-doodle-doo'
 
 
-class Goose(Animal):
+class Goose(Bird):
     phrase = 'Quack'
 
 
