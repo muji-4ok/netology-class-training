@@ -53,3 +53,12 @@ class Chicken(Animal):
 class Goose(Animal):
     def __init__(self, name, gender):
         super().__init__(name, gender, 'Quack', 'bird')
+
+
+if __name__ == '__main__':
+    goat1 = Goat('Betty', 'female')
+    goat2 = Goat('Jake', 'male')
+    duck = Duck('Joe', 'male')
+    sheep1 = Sheep('Dolly', 'female')
+    sheep2 = Sheep('Paul', 'male')
+    sheep3 = Sheep('Lucy', 'female')
