@@ -1,6 +1,4 @@
 class Animal():
-    phrase = 'Not implemented'
-
     def __init__(self, name, gender, phrase, bio_class):
         self.phrase = phrase
         self.name = name
