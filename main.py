@@ -10,6 +10,10 @@ class Animal:
                                            self.__class__.__name__.lower(),
                                            self.phrase))
 
+    def say_class(self):
+        print('{} is a {}'.format(self.__class__.__name__,
+                                  self.__class__.__base__.__name__.lower()))
+
 
 class Bird(Animal):
     pass
