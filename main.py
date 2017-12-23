@@ -1,22 +1,28 @@
 class Animal:
     phrase = None
+    bio_class = None
 
     def __init__(self, name, gender):
         self.name = name
         self.gender = gender
+        self.class_name = self.__class__.__name__.lower()
 
     def speak(self):
         print('{} the {} says "{}"'.format(self.name,
-                                           self.__class__.__name__.lower(),
+                                           self.class_name,
                                            self.phrase))
+
+    def say_class(self):
+        print('{} is a {}'.format(self.class_name.capitalize(),
+                                  self.bio_class))
 
 
 class Bird(Animal):
-    pass
+    bio_class = 'bird'
 
 
 class Mammal(Animal):
-    pass
+    bio_class = 'mammal'
 
 
 class Cow(Mammal):
@@ -42,7 +48,7 @@ class Duck(Bird):
         gender = 'he' if self.gender == 'male' else 'she'
         print('{} is a {} and {} says "{}"'.format(
             self.name,
-            self.__class__.__name__.lower(),
+            self.class_name,
             gender, self.phrase)
         )
 
