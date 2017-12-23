@@ -4,20 +4,19 @@ class Animal:
     def __init__(self, name, gender):
         self.name = name
         self.gender = gender
-        self.class_name = self.__class__.__name__
 
     def speak(self):
         print('{} the {} says "{}"'.format(self.name,
-                                           self.class_name.lower(),
+                                           self.__class__.__name__.lower(),
                                            self.phrase))
 
 
 class Bird(Animal):
-    bio_class = 'bird'
+    pass
 
 
 class Mammal(Animal):
-    bio_class = 'mammal'
+    pass
 
 
 class Cow(Mammal):
@@ -41,9 +40,11 @@ class Duck(Bird):
 
     def speak(self):
         gender = 'he' if self.gender == 'male' else 'she'
-        print('{} is a {} and {} says "{}"'.format(self.name,
-                                                   self.class_name.lower(),
-                                                   gender, self.phrase))
+        print('{} is a {} and {} says "{}"'.format(
+            self.name,
+            self.__class__.__name__.lower(),
+            gender, self.phrase)
+        )
 
 
 class Chicken(Bird):
